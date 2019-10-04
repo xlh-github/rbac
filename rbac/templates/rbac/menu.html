@@ -1,0 +1,32 @@
+{#<div class="static-menu">#}
+{#                <a href="/customer/list/" class="active">#}
+{#                    <span class="icon-wrap"><i class="fa fa-connectdevelop"></i></span> 客户管理</a>#}
+{#                <a href="/payment/list/">#}
+{#                    <span class="icon-wrap"><i class="fa fa-code-fork"></i></span> 账单管理</a>#}
+{#    {% for menu in menu_list %}#}
+{##}
+{#        <a href="{{ menu.url }}" class="{{ menu.class }}">#}
+{#            <span class="icon-wrap "><i class="fa {{ menu.icon }}"></i></span> {{ menu.title }}</a>#}
+{##}
+{#    {% endfor %}#}
+{##}
+{##}
+{#</div>#}
+
+<div class="multi-menu">
+
+    {% for menu in menu_list %}
+        <div class="item">
+            <div class="title"><i class="fa {{ menu.icon }}"></i> {{ menu.name }}</div>
+            <div class="body {{ menu.class }} ">
+                {% for child in menu.children %}
+                    <a class="{{ child.class }}" href="{{ child.url }}"> {{ child.title }}</a>
+                {% endfor %}
+
+            </div>
+        </div>
+
+    {% endfor %}
+
+
+</div>
